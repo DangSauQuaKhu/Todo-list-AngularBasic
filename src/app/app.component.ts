@@ -1,10 +1,18 @@
 import { Component } from '@angular/core';
+import { TodoListService } from './services/todo-list.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template:
+  `
+  <h1 class="app-title">
+  Welcome to {{ title }}!
+</h1>
+<app-list-manager></app-list-manager>
+  `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular_firstpj';
+  title = 'Todo-list';
+  
 }

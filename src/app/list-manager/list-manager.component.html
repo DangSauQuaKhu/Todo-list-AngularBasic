@@ -1,1 +1,13 @@
-<p>list-manager works!</p>
+
+    <div class="todo-app">
+
+        <app-input-button-unit (submit)="addItem($event)"></app-input-button-unit>
+        <ul>
+            <li *ngFor="let todoItem of todoList">
+                <app-todo-item *ngIf="!todoItem.removed" [item]="todoItem"
+                    (remove)="removeItem($event.item, $event.changes,$event.changeTime)"
+                    (update)="updateItem($event.item, $event.changes)"></app-todo-item>
+            </li>
+        </ul>
+    </div>
+

@@ -1,1 +1,4 @@
-<p>input-button-unit works!</p>
+<input class="todo-input" #inputElementValue placeholder="input" (keyup.enter)="submitValue(inputElementValue.value)">
+<button class="btn" (click)="submitValue(inputElementValue.value)">
+    <span>Save</span>
+</button>

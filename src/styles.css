@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
 html, body, div, span,
 h1, p, ul, li {
   padding: 0;
@@ -22,9 +25,8 @@ body {
 }
 .container {
   width: 100%;
-  height: auto;
   min-height: 500px;
-  max-width: 600px;
+  max-width: 900px;
   min-width: 250px;
   background: #f1f5f8;
   background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
@@ -62,7 +64,7 @@ ol, ul {
   border: 2px solid hsl(198, 1%, 29%);
 }
 .btn :active, .button:focus {
-  transform: translateY(4px);
+  transform: translateY(1px);
   padding-bottom: 0px;
   outline: 0;
 }
@@ -90,4 +92,26 @@ ol, ul {
 }
 .heading__img {
   width: 24%;
+}
+.todo-item {
+  padding: 10px 0;
+  border-top: solid 1px #ddd;
+  min-height: 30px;
+  line-height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-checkbox {
+  flex-shrink: 0;
+  margin: auto 1ex auto 0;
+}
+
+.todo-title {
+  flex-grow: 1;
+  padding-left: 11px;
+}
+
+.todo-complete {
+  text-decoration: line-through;
 }

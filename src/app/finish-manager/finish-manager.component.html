@@ -1,0 +1,26 @@
+    <div class="todo-app">
+        <p-table [value]="todoList">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Name</th>
+                    <th>Remove at</th>
+                    <th>Begin at</th>
+                    <th>Status</th>
+                    <th>Time completed</th>
+                   
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-todoItem>
+                <tr *ngIf="todoItem.removed">
+                    <td> {{ todoItem.title }}</td>
+                    <td> {{ todoItem.timeRemove|customDate}}</td>
+                    <td>{{todoItem.timeBegin|customDate}}</td>
+                    <td *ngIf="todoItem.completed"><p-tag>Completed</p-tag></td>
+                    <td *ngIf="!todoItem.completed"><p-tag [style]="{ 'background': 'red'}">NOT YET</p-tag></td>
+                    <td *ngIf="!todoItem.completed">Unknow</td>
+                    <td *ngIf="todoItem.completed">{{todoItem.days}} days</td>
+                    
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>

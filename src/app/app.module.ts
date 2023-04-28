@@ -7,18 +7,28 @@ import { InputButtonUnitComponent } from './input-button-unit/input-button-unit.
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { ListManagerComponent } from './list-manager/list-manager.component';
 import { TodoListService } from './services/todo-list.service';
-
+import { FinishManagerComponent } from './finish-manager/finish-manager.component';
+import { TodoRoutingModule } from './todo-routing.module';
+import { TableModule } from 'primeng/table';
+import { PrimeNGConfig } from 'primeng/api';
+import { TagModule } from 'primeng/tag';
+import { CustomDatePipe } from 'src/custom.datepipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputButtonUnitComponent,
     TodoItemComponent,
-    ListManagerComponent
+    ListManagerComponent,
+    FinishManagerComponent,
+    CustomDatePipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TodoRoutingModule,
+    TableModule,
+    TagModule
   ],
   providers: [TodoListService],
   bootstrap: [AppComponent]

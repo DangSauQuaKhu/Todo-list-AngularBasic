@@ -1,21 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TodoListService } from './services/todo-list.service';
+import { TodoItem } from './interfaces/todo-item';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  template:
-  `
-  <section class="container">
-  <div class="heading">
-  <img class="heading__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/laptop.svg">
-  <h1 class="heading__title">To-Do List</h1>
-</div>
-<app-list-manager></app-list-manager>
-</section>
-  `,
+  templateUrl: "./app.component.html",
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Todo-list';
-  
+  todoList: TodoItem[];
+  finishChecked = false;
+  changeList(): void {
+    this.finishChecked = !this.finishChecked;
+    console.log(this.finishChecked);
+
+
+  }
+  constructor(private router: Router,private todoListService: TodoListService) {}
+  ngOnInit(): void {
+      this.todoList= this.todoListService.getTodoList();
+  }
+  isHomeRoute() {
+    return this.router.url === '/home';
+  }
 }
